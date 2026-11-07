@@ -7,17 +7,13 @@
 <title>Panel Store</title>
 
 <style>
-*{
- box-sizing:border-box;
- margin:0;
- padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
  font-family:Arial,sans-serif;
  background:#f8f7fc;
  color:#20202a;
- padding-bottom:100px;
+ padding-bottom:110px;
 }
 
 header{
@@ -31,40 +27,40 @@ header{
  justify-content:space-between;
  padding:10px 14px;
  box-shadow:0 2px 8px #ddd;
- gap:8px;
 }
 
 .logo{
- font-size:19px;
+ font-size:21px;
  font-weight:900;
- color:#44218c;
- white-space:nowrap;
+ color:#5420a0;
 }
 
 .balance{
- background:#f00b68;
+ background:#ed0872;
  color:white;
  border-radius:30px;
- padding:13px 14px;
+ padding:14px 17px;
  font-weight:bold;
- white-space:nowrap;
 }
 
 .profile{
  width:48px;
  height:48px;
  border-radius:50%;
- object-fit:cover;
- border:2px solid #9026ed;
- box-shadow:0 0 10px #b76aff;
- flex-shrink:0;
+ background:linear-gradient(135deg,#26104d,#a32aff);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ color:white;
+ font-weight:bold;
+ border:2px solid #d7b5ff;
 }
 
 .notice{
- margin:22px 15px;
- background:linear-gradient(90deg,#ed0757,#f00083);
+ margin:20px 15px;
+ background:linear-gradient(90deg,#ed075d,#ff245e);
  color:white;
- padding:16px;
+ padding:17px;
  border-radius:30px;
  text-align:center;
  font-weight:bold;
@@ -72,37 +68,38 @@ header{
 
 .banner{
  margin:15px;
- border-radius:16px;
- overflow:hidden;
- background:#170629;
- box-shadow:0 5px 18px #cbb5e8;
+ border-radius:17px;
+ background:linear-gradient(120deg,#16072d,#7920ce,#a42ce9);
+ color:white;
+ text-align:center;
+ padding:40px 12px;
+ min-height:185px;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ gap:14px;
+ box-shadow:0 5px 18px #bda1d9;
 }
 
-.banner img{
- width:100%;
- height:auto;
- display:block;
-}
+.banner h1{font-size:30px}
+.banner p{font-size:15px}
+.banner b{font-size:14px}
 
 .categories{
  display:flex;
  gap:10px;
  overflow-x:auto;
- padding:10px 15px;
+ padding:12px 15px;
  scrollbar-width:none;
-}
-
-.categories::-webkit-scrollbar{
- display:none;
 }
 
 .category{
  background:white;
  border:1px solid #ddd;
  border-radius:30px;
- padding:13px 22px;
+ padding:13px 23px;
  white-space:nowrap;
- flex-shrink:0;
+ font-size:14px;
 }
 
 .category.active{
@@ -113,7 +110,8 @@ header{
 
 h2{
  text-align:center;
- margin:22px 0 8px;
+ margin:25px 0 8px;
+ font-size:25px;
 }
 
 .underline{
@@ -127,38 +125,44 @@ h2{
 .products{
  display:grid;
  grid-template-columns:repeat(2,minmax(0,1fr));
- gap:12px;
+ gap:13px;
  padding:15px;
 }
 
 .card{
  background:white;
- border:1px solid #ebd4e2;
- border-radius:15px;
+ border:1px solid #ead9ee;
+ border-radius:18px;
  overflow:hidden;
- box-shadow:0 3px 8px #ddd;
+ box-shadow:0 4px 12px #ddd;
 }
 
 .product-image{
- height:135px;
+ width:100%;
+ aspect-ratio:1/1;
  background:linear-gradient(140deg,#16052c,#7123a9);
+ overflow:hidden;
+}
+
+.product-image img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ display:block;
+}
+
+.info{padding:12px}
+
+.name{
  display:flex;
  align-items:center;
  justify-content:center;
- color:white;
- font-size:34px;
-}
-
-.info{
- padding:12px;
-}
-
-.name{
+ min-height:48px;
  text-align:center;
  background:#f7f8fb;
  border:1px solid #eee;
  border-radius:30px;
- padding:11px 4px;
+ padding:10px 5px;
  font-size:13px;
  font-weight:bold;
 }
@@ -166,16 +170,16 @@ h2{
 .price{
  text-align:center;
  color:#239a60;
- font-size:22px;
+ font-size:23px;
  font-weight:bold;
- margin:18px 0;
+ margin:20px 0;
 }
 
 .file,.buy{
  display:block;
  text-align:center;
- padding:12px 3px;
- border-radius:10px;
+ padding:14px 3px;
+ border-radius:11px;
  color:white;
  text-decoration:none;
  font-size:13px;
@@ -189,6 +193,20 @@ h2{
 
 .buy{
  background:linear-gradient(90deg,#f00088,#f51a4a);
+}
+
+.support{
+ position:fixed;
+ right:15px;
+ bottom:105px;
+ background:#ed0872;
+ color:white;
+ border:4px solid white;
+ border-radius:50%;
+ width:57px;
+ height:57px;
+ font-size:25px;
+ z-index:15;
 }
 
 nav{
@@ -216,38 +234,12 @@ nav button{
  gap:5px;
 }
 
-nav span{
- font-size:22px;
-}
-
-nav .selected{
- color:#e71954;
-}
-
-.support{
- position:fixed;
- right:15px;
- bottom:105px;
- background:#ed0872;
- color:white;
- border:4px solid white;
- border-radius:50%;
- width:57px;
- height:57px;
- font-size:25px;
- z-index:15;
-}
+nav span{font-size:22px}
+nav .selected{color:#e71954}
 
 @media(max-width:350px){
- .products{
-  grid-template-columns:1fr;
- }
- .logo{
-  font-size:16px;
- }
- .balance{
-  padding:11px;
- }
+ .products{grid-template-columns:1fr}
+ .logo{font-size:17px}
 }
 </style>
 </head>
@@ -256,16 +248,8 @@ nav .selected{
 
 <header>
  <div class="logo">⚡ PANEL STORE</div>
-
- <div class="balance">
-  ▣ ৳ <span id="balance">0</span>
- </div>
-
- <img
-  class="profile"
-  src="panel-store-profile.png"
-  alt="Profile Picture"
- >
+ <div class="balance">▣ ৳ <span id="balance">0</span></div>
+ <div class="profile">PS</div>
 </header>
 
 <div class="notice">
@@ -273,39 +257,17 @@ nav .selected{
 </div>
 
 <section class="banner">
- <img
-  src="panel-store-cover.png"
-  alt="Panel Store Premium Banner"
- >
+ <h1>⚡ PANEL STORE</h1>
+ <p>YOUR DIGITAL PRODUCTS MARKETPLACE</p>
+ <b>FAST SERVICE • SECURE ORDER</b>
 </section>
 
 <div class="categories">
-
- <button class="category active"
- onclick="filter('ALL',this)">
- ALL
- </button>
-
- <button class="category"
- onclick="filter('NON ROOT',this)">
- NON ROOT
- </button>
-
- <button class="category"
- onclick="filter('ROOT',this)">
- ROOT
- </button>
-
- <button class="category"
- onclick="filter('IPHONE',this)">
- IPHONE
- </button>
-
- <button class="category"
- onclick="filter('PC',this)">
- PC
- </button>
-
+ <button class="category active" onclick="filter('ALL',this)">ALL</button>
+ <button class="category" onclick="filter('NON ROOT',this)">NON ROOT</button>
+ <button class="category" onclick="filter('ROOT',this)">ROOT</button>
+ <button class="category" onclick="filter('IPHONE',this)">IPHONE</button>
+ <button class="category" onclick="filter('PC',this)">PC</button>
 </div>
 
 <h2>OUR PRODUCTS</h2>
@@ -313,71 +275,95 @@ nav .selected{
 
 <section class="products" id="products"></section>
 
-<button class="support"
- onclick="alert('Support link will be added later')">
- ➤
-</button>
+<button class="support" onclick="alert('Support link will be added later')">➤</button>
 
 <nav>
-
- <button class="selected" onclick="showPage('Home')">
-  <span>⌂</span>
-  Home
+ <button class="selected" onclick="showPage('Home',this)">
+ <span>⌂</span>Home
  </button>
-
- <button onclick="showPage('My Orders')">
-  <span>▣</span>
-  My Order
+ <button onclick="showPage('My Orders',this)">
+ <span>▣</span>My Order
  </button>
-
- <button onclick="showPage('Add Fund')">
-  <span>＋</span>
-  Add Fund
+ <button onclick="showPage('Add Fund',this)">
+ <span>＋</span>Add Fund
  </button>
-
- <button onclick="showPage('My Keys')">
-  <span>⚿</span>
-  My Keys
+ <button onclick="showPage('My Keys',this)">
+ <span>⚿</span>My Keys
  </button>
-
- <button onclick="showPage('Account')">
-  <span>♙</span>
-  Account
+ <button onclick="showPage('Account',this)">
+ <span>♙</span>Account
  </button>
-
 </nav>
 
 <script>
 
 const items=[
- {name:"Android Utility",price:100,cat:"NON ROOT",icon:"📱"},
- {name:"Software Tools",price:150,cat:"NON ROOT",icon:"🛠️"},
- {name:"Android Source Code",price:200,cat:"ROOT",icon:"💻"},
- {name:"License Package",price:120,cat:"PC",icon:"🔑"},
- {name:"iOS Utility",price:180,cat:"IPHONE",icon:"📲"},
- {name:"Web Source Code",price:250,cat:"PC",icon:"🌐"}
+
+ {
+  name:"AIM HACK",
+  price:20,
+  cat:"NON ROOT",
+  img:"aim-hack.png"
+ },
+
+ {
+  name:"DRIP WIRE",
+  price:25,
+  cat:"NON ROOT",
+  img:"drip-wire.png"
+ },
+
+ {
+  name:"REZZX MODS PANEL",
+  price:20,
+  cat:"NON ROOT",
+  img:"rezzx-mods.png"
+ },
+
+ {
+  name:"PHANTOM ANDROID IOS",
+  price:30,
+  cat:"IPHONE",
+  img:"phantom-panel.png"
+ },
+
+ {
+  name:"X-REG NON ROOT",
+  price:15,
+  cat:"NON ROOT",
+  img:"x-reg.png"
+ },
+
+ {
+  name:"BALA MODS - NON ROOT",
+  price:20,
+  cat:"NON ROOT",
+  img:"bala-mods.png"
+ }
+
 ];
 
 function render(data){
 
  document.getElementById("products").innerHTML=
- data.map((p,i)=>`
+
+ data.map(p=>`
 
  <article class="card">
 
   <div class="product-image">
-   ${p.icon}
+   <img
+    src="${p.img}"
+    alt="${p.name}"
+    onerror="this.style.display='none';this.parentElement.innerHTML='⚠️ Image not found';"
+   >
   </div>
 
   <div class="info">
 
-   <div class="name">
-    ${p.name}
-   </div>
+   <div class="name">${p.name}</div>
 
-   <div class="price">
-    PRICE ৳${p.price}
-   </div>
+   <div class="price">PRICE ৳${p.price}</div>
 
    <a href="#" class="file"
    onclick="details('${p.name}');return false">
@@ -406,8 +392,8 @@ function filter(cat,button){
 
  render(
   cat==="ALL"
-  ?items
-  :items.filter(x=>x.cat===cat)
+  ? items
+  : items.filter(x=>x.cat===cat)
  );
 
 }
@@ -420,14 +406,25 @@ function details(name){
 
 function buy(name){
 
- alert("You selected "+name+
- "\nOrder system will be connected later.");
+ alert(
+  "You selected "+name+
+  "\nOrder system will be connected later."
+ );
 
 }
 
-function showPage(name){
+function showPage(name,button){
 
- alert(name+" page will be added in the next version.");
+ document.querySelectorAll("nav button")
+ .forEach(x=>x.classList.remove("selected"));
+
+ button.classList.add("selected");
+
+ if(name==="Home"){
+  window.scrollTo({top:0,behavior:"smooth"});
+ }else{
+  alert(name+" page will be added in the next version.");
+ }
 
 }
 
