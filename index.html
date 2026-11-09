@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,161 +8,209 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+
 body{
  font-family:Arial,sans-serif;
- background:#f8f7fc;color:#20202a;
- padding-bottom:100px
+ background:#f8f7fc;
+ color:#20202a;
+ padding-bottom:110px;
 }
+
 header{
  position:sticky;top:0;z-index:10;
  height:76px;background:white;
  display:flex;align-items:center;
- justify-content:space-between;padding:10px 14px;
- box-shadow:0 2px 8px #ddd
+ justify-content:space-between;
+ padding:10px 14px;
+ box-shadow:0 2px 8px #ddd;
 }
-.logo{font-size:20px;font-weight:900;color:#5420a0}
+
+.logo{font-size:21px;font-weight:900;color:#5420a0}
 .balance{
  background:#ed0872;color:white;
- border-radius:30px;padding:12px;font-weight:bold
+ border-radius:30px;padding:14px 17px;
+ font-weight:bold;
 }
+
 .profile{
- width:45px;height:45px;border-radius:50%;
- overflow:hidden;border:2px solid #d7b5ff
+ width:48px;height:48px;border-radius:50%;
+ overflow:hidden;border:2px solid #d7b5ff;
+ flex-shrink:0;
 }
 .profile img{width:100%;height:100%;object-fit:cover}
+
 .notice{
- margin:15px;background:linear-gradient(90deg,#ed075d,#ff245e);
+ margin:20px 15px;
+ background:linear-gradient(90deg,#ed075d,#ff245e);
  color:white;padding:17px;border-radius:30px;
- text-align:center;font-weight:bold
+ text-align:center;font-weight:bold;
 }
+
 .banner{
  margin:15px;border-radius:17px;
- background:linear-gradient(120deg,#21063c,#7626cf);
+ background:linear-gradient(#0005,#0005),
+ url("banner.png") center/cover no-repeat;
  color:white;text-align:center;padding:40px 12px;
- min-height:180px;display:flex;
- flex-direction:column;justify-content:center;gap:14px
+ min-height:185px;display:flex;
+ flex-direction:column;justify-content:center;
+ gap:14px;box-shadow:0 5px 18px #bda1d9;
 }
+.banner h1{font-size:30px}
+.banner p{font-size:15px}
+.banner b{font-size:14px}
+
 .categories{
- display:flex;gap:10px;overflow-x:auto;padding:12px 15px
+ display:flex;gap:10px;overflow-x:auto;
+ padding:12px 15px;scrollbar-width:none;
 }
 .category{
  background:white;border:1px solid #ddd;
- border-radius:30px;padding:13px 20px;white-space:nowrap
+ border-radius:30px;padding:13px 23px;
+ white-space:nowrap;font-size:14px;
 }
 .category.active{
  background:linear-gradient(100deg,#7025d6,#2472ed);
- color:white;border:0
+ color:white;border:0;
 }
-h2{text-align:center;margin:25px 0 8px;font-size:24px}
+
+h2{text-align:center;margin:25px 0 8px;font-size:25px}
 .underline{
  width:80px;height:5px;
  background:linear-gradient(90deg,#f00082,#7929ed);
- margin:auto;border-radius:10px
+ margin:auto;border-radius:10px;
 }
+
 .products{
  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
- gap:13px;padding:15px
+ gap:13px;padding:15px;
 }
 .card{
  background:white;border:1px solid #ead9ee;
  border-radius:18px;overflow:hidden;
- box-shadow:0 4px 12px #ddd
+ box-shadow:0 4px 12px #ddd;
 }
 .product-image{
  width:100%;aspect-ratio:1/1;
  background:linear-gradient(140deg,#16052c,#7123a9);
- display:flex;align-items:center;justify-content:center;
- color:white;font-size:45px
+ overflow:hidden;
 }
 .product-image img{
- width:100%;height:100%;object-fit:cover
+ width:100%;height:100%;object-fit:cover;
+ display:block;
 }
 .info{padding:12px}
 .name{
- text-align:center;background:#f7f8fb;
- border:1px solid #eee;border-radius:30px;
- padding:12px;font-size:13px;font-weight:bold
+ display:flex;align-items:center;justify-content:center;
+ min-height:48px;text-align:center;
+ background:#f7f8fb;border:1px solid #eee;
+ border-radius:30px;padding:10px 5px;
+ font-size:13px;font-weight:bold;
 }
 .price{
  text-align:center;color:#239a60;
- font-size:21px;font-weight:bold;margin:18px 0
+ font-size:21px;font-weight:bold;
+ margin:20px 0;
 }
 .file,.buy{
- display:block;text-align:center;padding:13px 3px;
+ display:block;text-align:center;padding:14px 3px;
  border-radius:11px;color:white;text-decoration:none;
- font-size:13px;font-weight:bold;margin-top:10px
+ font-size:13px;font-weight:bold;margin-top:10px;
 }
 .file{background:linear-gradient(90deg,#2675eb,#7923d9)}
 .buy{background:linear-gradient(90deg,#f00088,#f51a4a)}
+
 .support{
  position:fixed;right:15px;bottom:105px;
- background:#ed0872;color:white;border:4px solid white;
- border-radius:50%;width:57px;height:57px;font-size:25px
+ background:#ed0872;color:white;
+ border:4px solid white;border-radius:50%;
+ width:57px;height:57px;font-size:25px;z-index:15;
 }
+
 nav{
  position:fixed;bottom:8px;left:3%;width:94%;
  background:#ffffffed;box-shadow:0 2px 20px #bbb;
  border-radius:35px;display:flex;
- justify-content:space-around;padding:13px 3px;z-index:20
+ justify-content:space-around;padding:13px 3px;
+ z-index:20;
 }
 nav button{
  border:0;background:none;color:#707080;
- font-size:11px;display:flex;flex-direction:column;
- align-items:center;gap:5px
+ font-size:11px;display:flex;
+ flex-direction:column;align-items:center;gap:5px;
 }
 nav span{font-size:22px}
 nav .selected{color:#e71954}
+
+/* POPUP */
 .modal{
  position:fixed;inset:0;background:#000b;
  display:none;align-items:center;justify-content:center;
- z-index:100;padding:15px;overflow-y:auto
+ z-index:100;padding:15px;overflow-y:auto;
 }
 .modal-box{
- width:100%;max-width:390px;background:#171522;
- color:white;border-radius:20px;padding:22px;
- border:1px solid #a34bff;max-height:90vh;overflow-y:auto
+ width:100%;max-width:390px;
+ background:#171522;color:white;
+ border-radius:20px;padding:22px;
+ border:1px solid #a34bff;
+ box-shadow:0 0 25px #7820c9;
+ max-height:90vh;overflow-y:auto;
 }
 .modal-box h2{color:#d9a5ff;margin:10px 0 20px}
 .close-btn{
  float:right;background:#ff3155;color:white;
- border:0;border-radius:50%;width:32px;height:32px;font-size:20px
+ border:0;border-radius:50%;width:32px;
+ height:32px;font-size:20px;cursor:pointer;
 }
 .popup-btn{
- display:block;width:100%;padding:14px;
+ display:block;width:100%;padding:15px;
  margin:12px 0;border:0;border-radius:12px;
- color:white;font-weight:bold;font-size:14px
+ color:white;font-weight:bold;font-size:14px;
+ cursor:pointer;
 }
 .purple{background:#7526db}
 .red{background:#ed244c}
 .green{background:#12a86b}
 .blue{background:#2675eb}
-.field{
- width:100%;padding:14px;margin:8px 0;
- border:1px solid #aaa;border-radius:10px;font-size:15px
-}
+
 .package-grid{
  display:grid;grid-template-columns:1fr 1fr;
- gap:10px;margin:15px 0
+ gap:10px;margin:15px 0;
 }
 .package{
  background:#252536;color:white;
- border:1px solid #7650a5;border-radius:12px;
- padding:14px 5px;font-weight:bold
+ border:1px solid #7650a5;
+ border-radius:12px;padding:14px 5px;
+ cursor:pointer;font-weight:bold;
 }
-.package.active{background:#7025d6}
-.package small{display:block;margin-top:6px;color:#5cffb0}
-.quantity{width:85px;padding:10px;margin:12px}
-.total{font-size:23px;color:#51e99a;text-align:center;margin:15px}
-.page-content{
- margin:20px 15px;padding:20px;background:white;
- border-radius:15px;box-shadow:0 3px 12px #ddd
+.package small{
+ display:block;margin-top:6px;color:#5cffb0;
 }
-.order-item{padding:12px;border-bottom:1px solid #ddd;line-height:1.8}
-.empty{text-align:center;padding:25px;color:#777}
+.package.active{
+ background:#7025d6;border-color:white;
+}
+.quantity{
+ width:85px;padding:10px;margin:12px;
+ border-radius:8px;border:1px solid #aaa;
+}
+.total{
+ font-size:23px;color:#51e99a;
+ text-align:center;margin:15px;
+}
 .popup-text{text-align:center;margin:12px 0;color:#ddd}
+.page-content{
+ margin:20px 15px;padding:20px;
+ background:white;border-radius:15px;
+ box-shadow:0 3px 12px #ddd;
+}
+.order-item{
+ padding:12px;border-bottom:1px solid #ddd;
+ line-height:1.8;
+}
+.empty{text-align:center;padding:25px;color:#777}
+
 @media(max-width:350px){
  .products{grid-template-columns:1fr}
- .logo{font-size:16px}
+ .logo{font-size:17px}
 }
 </style>
 </head>
@@ -171,7 +220,9 @@ nav .selected{color:#e71954}
 <header>
  <div class="logo">⚡ PANEL STORE</div>
  <div class="balance">▣ ৳ <span id="balance">0</span></div>
- <div class="profile"><img src="profile.png" alt="Profile"></div>
+ <div class="profile">
+  <img src="profile.png" alt="Profile Picture">
+ </div>
 </header>
 
 <div class="notice">📢 NOTICE: Welcome to Panel Store!</div>
@@ -184,36 +235,58 @@ nav .selected{color:#e71954}
 
 <div class="categories">
  <button class="category active" onclick="filter('ALL',this)">ALL</button>
- <button class="category" onclick="filter('GUIDE',this)">GUIDE</button>
- <button class="category" onclick="filter('SOFTWARE',this)">SOFTWARE</button>
- <button class="category" onclick="filter('SERVICE',this)">SERVICE</button>
+ <button class="category" onclick="filter('NON ROOT',this)">NON ROOT</button>
+ <button class="category" onclick="filter('ROOT',this)">ROOT</button>
+ <button class="category" onclick="filter('IPHONE',this)">IPHONE</button>
+ <button class="category" onclick="filter('PC',this)">PC</button>
 </div>
 
 <h2>OUR PRODUCTS</h2>
 <div class="underline"></div>
+
 <section class="products" id="products"></section>
+
 <div id="otherPage"></div>
 
 <button class="support" onclick="alert('Support link will be added later')">➤</button>
 
 <nav>
- <button class="selected" onclick="showPage('Home',this)"><span>⌂</span>Home</button>
- <button onclick="showPage('My Orders',this)"><span>▣</span>My Orders</button>
- <button onclick="showPage('Add Fund',this)"><span>＋</span>Add Fund</button>
- <button onclick="showPage('My Keys',this)"><span>⚿</span>My Keys</button>
- <button onclick="showPage('Account',this)"><span>♙</span>Account</button>
+ <button class="selected" onclick="showPage('Home',this)">
+  <span>⌂</span>Home
+ </button>
+ <button onclick="showPage('My Orders',this)">
+  <span>▣</span>My Order
+ </button>
+ <button onclick="showPage('Add Fund',this)">
+  <span>＋</span>Add Fund
+ </button>
+ <button onclick="showPage('My Keys',this)">
+  <span>⚿</span>My Keys
+ </button>
+ <button onclick="showPage('Account',this)">
+  <span>♙</span>Account
+ </button>
 </nav>
 
-<!-- LOGIN MODAL -->
-<div class="modal" id="loginModal">
+<!-- FILE SETUP MODAL -->
+<div class="modal" id="fileModal">
  <div class="modal-box">
-  <button class="close-btn" onclick="closeModal('loginModal')">×</button>
-  <h2>ACCOUNT LOGIN</h2>
-  <input class="field" id="loginEmail" type="email" placeholder="Email">
-  <input class="field" id="loginPassword" type="password" placeholder="Password">
-  <button class="popup-btn purple" onclick="login()">LOGIN</button>
-  <button class="popup-btn blue" onclick="signup()">CREATE ACCOUNT</button>
-  <p id="authMessage" class="popup-text"></p>
+  <button class="close-btn" onclick="closeModal('fileModal')">×</button>
+  <h2>FILE AND SETUP</h2>
+  <p class="popup-text" id="fileProduct"></p>
+
+  <button class="popup-btn green" onclick="openSetupLink('details')">
+   PANEL FULL DETAILS
+  </button>
+  <button class="popup-btn red" onclick="openSetupLink('video')">
+   PANEL SETUP VIDEO
+  </button>
+  <button class="popup-btn purple" onclick="openSetupLink('download')">
+   PANEL DOWNLOAD LINK
+  </button>
+  <button class="popup-btn blue" onclick="openSetupLink('iphone')">
+   AIMKILL IPHONE SETUP VIDEO
+  </button>
  </div>
 </div>
 
@@ -221,73 +294,141 @@ nav .selected{color:#e71954}
 <div class="modal" id="buyModal">
  <div class="modal-box">
   <button class="close-btn" onclick="closeModal('buyModal')">×</button>
-  <h2 id="buyProduct">PRODUCT</h2>
-  <p class="popup-text">SELECT PACKAGE</p>
+  <h2 id="buyProduct">PRODUCT NAME</h2>
+  <p class="popup-text">SELECT RECHARGE</p>
+
   <div class="package-grid" id="packageList"></div>
-  <p class="popup-text">QUANTITY</p>
-  <input class="quantity" type="number" id="quantity" value="1" min="1" max="10" onchange="updateTotal()">
+
+  <p class="popup-text">SELECT QUANTITY</p>
+  <input class="quantity" type="number" id="quantity"
+   value="1" min="1" max="10" onchange="updateTotal()">
+
   <div class="total" id="totalPrice">TOTAL: ৳0</div>
-  <button class="popup-btn green" onclick="confirmOrder()">CONFIRM ORDER</button>
+
+  <button class="popup-btn green" onclick="confirmOrder()">
+   CONFIRM ORDER
+  </button>
  </div>
 </div>
 
-<!-- FILE MODAL -->
-<div class="modal" id="fileModal">
- <div class="modal-box">
-  <button class="close-btn" onclick="closeModal('fileModal')">×</button>
-  <h2>PRODUCT DETAILS</h2>
-  <p class="popup-text" id="fileProduct"></p>
-  <button class="popup-btn blue" onclick="openSetupLink('details')">FULL DETAILS</button>
-  <button class="popup-btn red" onclick="openSetupLink('video')">SETUP VIDEO</button>
-  <button class="popup-btn purple" onclick="openSetupLink('download')">DOWNLOAD LINK</button>
- </div>
-</div>
+<script>
 
-<!-- PART 2 CONTINUES BELOW -->
- <script>
-const API_URL="https://panel-store-api.mdhussainpk01799.workers.dev";
+/* PRODUCT DATABASE */
 
 const items=[
- {name:"DIGITAL GUIDE",price:50,cat:"GUIDE",img:"aim-hack.png",
-  packages:[["BASIC",50],["PREMIUM",100]]},
- {name:"SOFTWARE GUIDE",price:80,cat:"SOFTWARE",img:"drip-wire.png",
-  packages:[["BASIC",80],["PRO",150]]},
- {name:"SETUP SERVICE",price:100,cat:"SERVICE",img:"rezzx-mods.png",
-  packages:[["STANDARD",100],["ADVANCED",200]]}
+ {
+  name:"AIM HACK",price:30,cat:"NON ROOT",img:"aim-hack.png",
+  packages:[
+   ["1 HOUR",30],["3 HOURS",100],
+   ["6 HOURS",180],["12 HOURS",250],
+   ["1 DAY",350],["3 DAYS",700],
+   ["7 DAYS",1400],["15 DAYS",2500]
+  ]
+ },
+ {
+  name:"DRIP WIRE",price:40,cat:"NON ROOT",img:"drip-wire.png",
+  packages:[
+   ["1 HOUR",40],["3 HOURS",120],
+   ["6 HOURS",200],["12 HOURS",300],
+   ["1 DAY",400],["3 DAYS",800],
+   ["7 DAYS",1600],["15 DAYS",2800]
+  ]
+ },
+ {
+  name:"REZZX MODS PANEL",price:30,cat:"NON ROOT",img:"rezzx-mods.png",
+  packages:[
+   ["1 HOUR",30],["3 HOURS",100],
+   ["6 HOURS",180],["12 HOURS",270],
+   ["1 DAY",380],["3 DAYS",750],
+   ["7 DAYS",1500],["15 DAYS",2700]
+  ]
+ },
+ {
+  name:"PHANTOM ANDROID IOS",price:50,cat:"IPHONE",img:"phantom-panel.png",
+  packages:[
+   ["1 HOUR",50],["3 HOURS",150],
+   ["6 HOURS",250],["12 HOURS",350],
+   ["1 DAY",500],["3 DAYS",1000],
+   ["7 DAYS",2000],["15 DAYS",3500]
+  ]
+ },
+ {
+  name:"X-REG NON ROOT",price:20,cat:"NON ROOT",img:"x-reg.png",
+  packages:[
+   ["1 HOUR",20],["3 HOURS",70],
+   ["6 HOURS",130],["12 HOURS",200],
+   ["1 DAY",300],["3 DAYS",600],
+   ["7 DAYS",1200],["15 DAYS",2000]
+  ]
+ },
+ {
+  name:"BALA MODS - NON ROOT",price:30,cat:"NON ROOT",img:"bala-mods.png",
+  packages:[
+   ["1 HOUR",30],["3 HOURS",100],
+   ["6 HOURS",180],["12 HOURS",260],
+   ["1 DAY",370],["3 DAYS",740],
+   ["7 DAYS",1400],["15 DAYS",2500]
+  ]
+ }
 ];
 
+/*
+Add your own authorized product information URLs here.
+Each product has separate links.
+*/
+
 const setupLinks={
- "DIGITAL GUIDE":{details:"",video:"",download:""},
- "SOFTWARE GUIDE":{details:"",video:"",download:""},
- "SETUP SERVICE":{details:"",video:"",download:""}
+ "AIM HACK":{details:"",video:"",download:"",iphone:""},
+ "DRIP WIRE":{details:"",video:"",download:"",iphone:""},
+ "REZZX MODS PANEL":{details:"",video:"",download:"",iphone:""},
+ "PHANTOM ANDROID IOS":{details:"",video:"",download:"",iphone:""},
+ "X-REG NON ROOT":{details:"",video:"",download:"",iphone:""},
+ "BALA MODS - NON ROOT":{details:"",video:"",download:"",iphone:""}
 };
 
 let selectedProduct=null;
 let selectedPrice=0;
 let selectedPackage="";
 let selectedIndex=-1;
-let currentUser=null;
+
+/* RENDER PRODUCTS */
 
 function render(data){
- document.getElementById("products").innerHTML=data.map(p=>`
+ document.getElementById("products").innerHTML=
+ data.map(p=>`
  <article class="card">
   <div class="product-image">
-   <img src="${p.img}" alt="${p.name}" onerror="this.style.display='none'">
+   <img src="${p.img}" alt="${p.name}"
+    onerror="this.style.display='none';this.parentElement.innerHTML='⚠️ Image not found';">
   </div>
   <div class="info">
    <div class="name">${p.name}</div>
    <div class="price">FROM ৳${p.price}</div>
-   <a href="#" class="file" onclick="details('${p.name}');return false">▶ DETAILS</a>
-   <a href="#" class="buy" onclick="buy('${p.name}');return false">🛒 BUY NOW</a>
+   <a href="#" class="file"
+    onclick="details('${p.name}');return false">
+    ▶ FILE & SETUP
+   </a>
+   <a href="#" class="buy"
+    onclick="buy('${p.name}');return false">
+    🛒 BUY NOW
+   </a>
   </div>
- </article>`).join("");
+ </article>
+ `).join("");
 }
 
+/* CATEGORY FILTER */
+
 function filter(cat,button){
- document.querySelectorAll(".category").forEach(x=>x.classList.remove("active"));
+ document.querySelectorAll(".category")
+ .forEach(x=>x.classList.remove("active"));
+
  button.classList.add("active");
+
  render(cat==="ALL"?items:items.filter(x=>x.cat===cat));
 }
+
+/* FILE AND SETUP */
 
 function details(name){
  selectedProduct=items.find(p=>p.name===name);
@@ -297,75 +438,136 @@ function details(name){
 
 function openSetupLink(type){
  if(!selectedProduct)return;
+
  const link=setupLinks[selectedProduct.name][type];
- if(!link){alert("Link not added yet.");return;}
- try{
-  const u=new URL(link);
-  if(!["https:","http:"].includes(u.protocol))throw Error();
-  window.open(u.href,"_blank","noopener");
- }catch(e){alert("Invalid link.");}
+
+ if(!link){
+  alert("এই Product-এর "+type+" link এখনো যোগ করা হয়নি।");
+  return;
+ }
+
+ window.open(link,"_blank","noopener");
 }
+
+/* BUY NOW */
 
 function buy(name){
  selectedProduct=items.find(p=>p.name===name);
- selectedPrice=0;selectedPackage="";selectedIndex=-1;
+ selectedPrice=0;
+ selectedPackage="";
+ selectedIndex=-1;
+
  document.getElementById("buyProduct").innerText=name;
  document.getElementById("quantity").value=1;
+
  const list=document.getElementById("packageList");
  list.innerHTML="";
- selectedProduct.packages.forEach((p,i)=>{
-  list.innerHTML+=`<button class="package" onclick="selectPackage(${i})">${p[0]}<small>৳${p[1]}</small></button>`;
+
+ selectedProduct.packages.forEach((p,index)=>{
+  list.innerHTML+=`
+   <button class="package" onclick="selectPackage(${index})">
+    ${p[0]}
+    <small>৳${p[1]}</small>
+   </button>
+  `;
  });
+
  document.getElementById("buyModal").style.display="flex";
  updateTotal();
 }
 
-function selectPackage(i){
- selectedIndex=i;
- selectedPackage=selectedProduct.packages[i][0];
- selectedPrice=selectedProduct.packages[i][1];
- document.querySelectorAll(".package").forEach(x=>x.classList.remove("active"));
- document.querySelectorAll(".package")[i].classList.add("active");
+function selectPackage(index){
+ selectedIndex=index;
+ selectedPackage=selectedProduct.packages[index][0];
+ selectedPrice=selectedProduct.packages[index][1];
+
+ document.querySelectorAll(".package").forEach(x=>
+  x.classList.remove("active"));
+
+ document.querySelectorAll(".package")[index]
+ .classList.add("active");
+
  updateTotal();
 }
 
+/* TOTAL PRICE */
+
 function updateTotal(){
- let q=Math.max(1,Math.min(10,Number(document.getElementById("quantity").value)||1));
- document.getElementById("quantity").value=q;
- document.getElementById("totalPrice").innerText="TOTAL: ৳"+(selectedPrice*q);
+ const input=document.getElementById("quantity");
+
+ let qty=parseInt(input.value)||1;
+ qty=Math.max(1,Math.min(10,qty));
+ input.value=qty;
+
+ document.getElementById("totalPrice").innerText=
+ "TOTAL: ৳"+(selectedPrice*qty);
 }
 
+/* DEMO ORDER STORAGE */
+
 function getOrders(){
- try{return JSON.parse(localStorage.getItem("panelOrders")||"[]");}
- catch(e){return [];}
+ try{
+  return JSON.parse(localStorage.getItem("panelOrders"))||[];
+ }catch(e){
+  return [];
+ }
 }
 
 function confirmOrder(){
- if(selectedIndex<0){alert("Select a package first.");return;}
+ if(selectedIndex<0){
+  alert("প্রথমে একটি Package নির্বাচন করো।");
+  return;
+ }
+
  const qty=Number(document.getElementById("quantity").value);
+ const total=selectedPrice*qty;
+
  const order={
   id:"PS"+Date.now(),
   product:selectedProduct.name,
   package:selectedPackage,
+  price:selectedPrice,
   quantity:qty,
-  total:selectedPrice*qty,
-  status:"Demo - Not Paid",
+  total:total,
+  status:"Pending",
   date:new Date().toLocaleString()
  };
+
  const orders=getOrders();
  orders.unshift(order);
- localStorage.setItem("panelOrders",JSON.stringify(orders));
- alert("Demo order saved. This is not a payment or delivery.");
+
+ try{
+  localStorage.setItem("panelOrders",JSON.stringify(orders));
+ }catch(e){
+  alert("Browser storage unavailable.");
+  return;
+ }
+
+ alert(
+  "DEMO ORDER SAVED!\n\n"+
+  "Product: "+order.product+
+  "\nPackage: "+order.package+
+  "\nQuantity: "+qty+
+  "\nTotal: ৳"+total+
+  "\nOrder ID: "+order.id+
+  "\n\nএটি Demo Order, আসল Payment বা Delivery নয়।"
+ );
+
  closeModal("buyModal");
 }
 
+/* NAVIGATION */
+
 function showPage(name,button){
- document.querySelectorAll("nav button").forEach(x=>x.classList.remove("selected"));
+ document.querySelectorAll("nav button")
+ .forEach(x=>x.classList.remove("selected"));
+
  button.classList.add("selected");
+
  const products=document.getElementById("products");
  const page=document.getElementById("otherPage");
- const heading=document.querySelector("body > h2");
- const underline=document.querySelector("body > .underline");
+ const heading=document.querySelector("h2");
+ const underline=document.querySelector(".underline");
 
  if(name==="Home"){
   products.style.display="grid";
@@ -375,109 +577,74 @@ function showPage(name,button){
   window.scrollTo({top:0,behavior:"smooth"});
   return;
  }
+
  products.style.display="none";
  heading.style.display="none";
  underline.style.display="none";
 
  if(name==="My Orders"){
   const orders=getOrders();
-  page.innerHTML=`<div class="page-content"><h2>MY ORDERS</h2>${
-   orders.length?orders.map(o=>`
-    <div class="order-item"><b>${o.product}</b><br>
-    Package: ${o.package}<br>Quantity: ${o.quantity}<br>
-    Total: ৳${o.total}<br>Order ID: ${o.id}<br>
-    Status: ${o.status}<br>Date: ${o.date}</div>`
-   ).join(""):'<p class="empty">No Orders Yet</p>'
-  }</div>`;
+
+  page.innerHTML=`
+   <div class="page-content">
+    <h2>MY ORDERS</h2>
+    ${orders.length?orders.map(o=>`
+     <div class="order-item">
+      <b>${o.product}</b><br>
+      Package: ${o.package}<br>
+      Quantity: ${o.quantity}<br>
+      Total: ৳${o.total}<br>
+      Order ID: ${o.id}<br>
+      Status: ${o.status}<br>
+      Date: ${o.date}
+     </div>
+    `).join(""):'<p class="empty">No Orders Yet</p>'}
+   </div>`;
  }
 
- if(name==="Add Fund"){
-  page.innerHTML=`<div class="page-content">
-   <h2>ADD FUND</h2>
-   <p class="empty">Payment requests will be connected after the secure payment API is configured.</p>
-  </div>`;
+ else if(name==="Add Fund"){
+  page.innerHTML=`
+   <div class="page-content">
+    <h2>ADD FUND</h2>
+    <p class="empty">Wallet and Payment System Coming Soon.</p>
+   </div>`;
  }
 
- if(name==="My Keys"){
-  page.innerHTML=`<div class="page-content">
-   <h2>MY KEYS</h2><p class="empty">No delivery information yet.</p>
-  </div>`;
+ else if(name==="My Keys"){
+  page.innerHTML=`
+   <div class="page-content">
+    <h2>MY KEYS</h2>
+    <p class="empty">No Product Keys Delivered Yet.</p>
+   </div>`;
  }
 
- if(name==="Account"){
-  page.innerHTML=`<div class="page-content">
-   <h2>MY ACCOUNT</h2>
-   <p class="empty">${currentUser?currentUser.email:"Not logged in"}</p>
-   <button class="popup-btn purple" onclick="document.getElementById('loginModal').style.display='flex'">LOGIN / SIGNUP</button>
-   <button class="popup-btn red" onclick="logout()">LOGOUT</button>
-  </div>`;
+ else if(name==="Account"){
+  page.innerHTML=`
+   <div class="page-content">
+    <h2>MY ACCOUNT</h2>
+    <p class="empty">Account System Coming Soon.</p>
+   </div>`;
  }
+
  window.scrollTo({top:0,behavior:"smooth"});
 }
 
-/* AUTH API */
-
-async function authRequest(path,data){
- try{
-  const response=await fetch(API_URL+path,{
-   method:"POST",
-   headers:{"Content-Type":"application/json"},
-   body:JSON.stringify(data)
-  });
-  return await response.json();
- }catch(e){
-  return {success:false,message:"API connection failed"};
- }
-}
-
-async function signup(){
- const email=document.getElementById("loginEmail").value.trim();
- const password=document.getElementById("loginPassword").value;
- if(!email||password.length<6){
-  document.getElementById("authMessage").innerText="Enter email and password (6+ characters).";
-  return;
- }
- const result=await authRequest("/auth/signup",{email,password});
- document.getElementById("authMessage").innerText=
- result.message|| (result.success?"Account created. Verify email if required.":"Signup failed");
-}
-
-async function login(){
- const email=document.getElementById("loginEmail").value.trim();
- const password=document.getElementById("loginPassword").value;
- const result=await authRequest("/auth/login",{email,password});
- if(result.success&&result.access_token){
-  currentUser={email,token:result.access_token};
-  localStorage.setItem("panelUser",JSON.stringify(currentUser));
-  closeModal("loginModal");
-  alert("Login successful!");
- }else{
-  document.getElementById("authMessage").innerText=result.message||"Login failed";
- }
-}
-
-function logout(){
- currentUser=null;
- localStorage.removeItem("panelUser");
- alert("Logged out.");
- showPage("Account",document.querySelectorAll("nav button")[4]);
-}
+/* CLOSE MODAL */
 
 function closeModal(id){
  document.getElementById(id).style.display="none";
 }
 
 document.querySelectorAll(".modal").forEach(modal=>{
- modal.addEventListener("click",e=>{
+ modal.addEventListener("click",function(e){
   if(e.target===modal)modal.style.display="none";
  });
 });
 
-try{
- currentUser=JSON.parse(localStorage.getItem("panelUser")||"null");
-}catch(e){currentUser=null;}
+/* START */
 
 render(items);
+
 </script>
 </body>
 </html>
